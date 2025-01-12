@@ -16,13 +16,13 @@
       in
       {
         nixosConfigurations.nvidiaIso = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
+          system = "x86_64-linux";
+          specialArgs = {
             inherit inputs outputs;
+          };
+          modules = [
+            ./nixos/configuration.nix
+          ];
         };
-        modules = [
-            import ./nixos/configuration.nix
-        ];
       };
-    };
 }
